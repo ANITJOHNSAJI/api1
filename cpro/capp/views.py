@@ -88,40 +88,7 @@ def fun6(req,d):
     elif req.method=='DELETE':
         demo.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
-    def get(self,req):
-        demo=student.objects.all()
-        s=model_serializer(demo,many=True)
-        return Response(s.data)
-    def post(self,req):
-        s=model_serializer(data=req.data)
-        if s.is_valid():
-            s.save()
-            return JsonResponse(s.data,status=status.HTTP_201_CREATED)
-        else:
-            return JsonResponse(s.errors,status=status.HTTP_400_BAD_REQUEST)
-
-# @api_view(['GET', 'PUT', 'DELETE'])
-# def fun6(req, d):
-#     try:
-#         demo = Student.objects.get(pk=d)
-#     except Student.DoesNotExist:
-#         return Response({"error": "Student not found"}, status=status.HTTP_404_NOT_FOUND)
-
-#     if req.method == 'GET':
-#         s = StudentSerializer(demo)
-#         return Response(s.data)
-
-#     elif req.method == 'PUT':
-#         data = JSONParser().parse(req)  # Ensure JSON parsing for PUT requests
-#         s = StudentSerializer(demo, data=data)
-#         if s.is_valid():
-#             s.save()
-#             return Response(s.data)
-#         return Response(s.errors, status=status.HTTP_400_BAD_REQUEST)
-
-#     elif req.method == 'DELETE':
-#         demo.delete()
-#         return Response(status=status.HTTP_204_NO_CONTENT)     
+  
 
 class fun7(APIView):
     def get(self,req):
